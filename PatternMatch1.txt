@@ -16,7 +16,7 @@ public class Prog12_PatternSrc {
 				int fp=src.indexOf(ptn, start);
 			
 				count++;
-				start=fp+ptn.length();
+				start=fp+1;
 		
 				if (fp<0)
 				{
