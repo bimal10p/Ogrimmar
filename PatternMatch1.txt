@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class Prog12_PatternSrc {
+	
+	void PatternMatch(String src,String ptn)
+	{
+		System.out.println("Source length :"+src.length());
+		System.out.println("Pattern length :"+ptn.length());
+		if(src.contains(ptn)==true){
+			System.out.println("MATCH FOUND");
+		//--------------------------------------------------------------
+			int count=0;
+			int start=0;
+			for(int i=0;i<src.length();i++)
+			{
+				int fp=src.indexOf(ptn, start);
+			
+				count++;
+				start=fp+ptn.length();
+		
+				if (fp<0)
+				{
+					break;
+				}
+				System.out.println("Occurance "+count+" At position "+(fp+1));
+					
+			}	
+		//--------------------------------------------------------------
+		}
+		else
+			System.out.println("NO MATCH FOUND");
+				
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Prog12_PatternSrc psrch=new Prog12_PatternSrc();
+		/*--------------------------------------------------------------
+		 * TESTING
+		 * String src="aabacbacbaba";
+		System.out.println(src);
+		String ptn="ba";*/
+		//--------------------------------------------------------------
+		Scanner scan= new Scanner(System.in);
+		System.out.println("Enter the Source String :");
+		String src=scan.next();
+		System.out.println("Enter the search pattern :");
+		String ptn=scan.next();
+		psrch.PatternMatch(src, ptn);
+	}
+
+}
