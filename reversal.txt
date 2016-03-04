@@ -1,0 +1,50 @@
+package TestProgs;
+
+import java.util.Scanner;
+
+public class Prog15_Reverse {
+	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String aa="";
+		String bb="";
+	
+		Scanner scan=new Scanner(System.in);
+		System.out.println("Enter the test string :");
+		String test=scan.nextLine();
+		//String test="Andhera Kaayam Rahe";
+		int n =test.length();
+		System.out.println(n);
+
+//-----------------------------------------------------------------		
+				for (int i=0;i<n/2;i++){
+				char a = test.charAt(i);
+				//System.out.println(a);// will be H
+				char b = test.charAt(n-1-i);
+				//System.out.println(b);// will be o
+				aa=test.charAt(i)+aa;
+				bb=bb + test.charAt(n-i-1);
+				}
+//---------------------------------------------------------------------				
+				if (n%2==0)
+				System.out.println("The reverse is : "+bb+aa);
+				else
+				System.out.println("The reverse is : "+bb+test.charAt(n/2)+aa);
+				
+							
+// ---------------------------------------------------------------------
+				
+				StringBuffer buff=new StringBuffer(test);
+				buff.reverse();
+				System.out.println(buff);
+	}
+
+}
+
+
+
+
+
+
