@@ -1,0 +1,39 @@
+package TestProgs;
+
+import java.util.Scanner;
+
+public class Prog16_Occurence {
+
+	public void counter(String test){
+		int len=test.length();
+		String tester="";
+		
+		for(int i=0; i<len;i++){
+			String chr=test.substring(i,i+1);
+			String src=test.substring(i+1);
+			int count =1;
+				if(src.contains(chr)&&!tester.contains(chr))
+				{
+					for(int j=0;j<src.length();j++){
+						if(chr.charAt(0)==src.charAt(j))
+							count=count+1;
+					}
+					System.out.println(chr+" occurence : "+count);
+				}
+				else if(!tester.contains(chr)){
+					System.out.println(chr+" occurence : "+count);
+				}
+					tester=tester+chr;
+					//System.out.println(tester);
+					}
+			}
+	
+public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan=new Scanner(System.in);
+		System.out.println("Enter the String :");
+		String test=scan.nextLine();
+		Prog16_Occurence oc=new Prog16_Occurence();
+		oc.counter(test);
+	}
+}
