@@ -1,0 +1,32 @@
+package TestProgs;
+
+import javax.xml.transform.Source;
+
+public class Prog20 {
+	
+	public void CheckSeq(char src[],char ptn[]){
+		int len1=src.length;
+		int len2=ptn.length;
+		
+		String SRC=new String(src);
+		String PTN=new String(ptn);
+		
+		if(SRC.contains(PTN)){
+			int Start=SRC.indexOf(PTN, 0);
+			int End=Start+len2-1;
+			System.out.println("The start index is :"+Start+" The end index is :"+End);
+		}
+		else
+			System.out.println("The sequence is not present");
+		
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		char src[]={'A','B','C','D','A','H','F'};
+		char ptn[]={'D','A','H'};
+		Prog20 p=new Prog20();
+		p.CheckSeq(src, ptn);
+	
+	}
+}
