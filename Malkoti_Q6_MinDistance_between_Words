@@ -1,0 +1,41 @@
+package TestProgs;
+
+public class Prog22_Distance {
+	
+	public int MinDist(String str,String w1,String w2){
+	int dis=100;
+	
+	int len=str.length();
+	int wa=w1.length();
+	int wb=w2.length();
+	int fp1=0,fp2=0;
+
+		
+	for(int i=0;i<len;i++){
+		int st1=str.indexOf(w1, fp1);
+			for(int j=0;j<len;j++){
+				int temp=0;
+				int st2=str.indexOf(w2, fp2);
+				if(st2>st1){temp=Math.abs(st2-(st1+wa));}
+				else
+					temp=Math.abs(st1-(st2+wb));
+				
+				if(temp<dis){dis=temp;}
+				System.out.println(st1+"\t"+st2+"\t"+temp+"\t"+dis);
+				fp2=st2+wb;
+			}	
+			fp1=st1+wa;
+		}		
+	return dis;	
+	}
+//----------------------------------------------------------------------
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String str="badtfsadaiuubadaaaaaaabadsad";
+		String w1="bad";
+		String w2="sad";
+		Prog22_Distance mindis=new Prog22_Distance();
+		System.out.println("Min distance between the 2 words : "+mindis.MinDist(str, w1, w2));
+	}
+}
