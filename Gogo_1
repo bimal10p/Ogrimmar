@@ -1,31 +1,43 @@
-package JavaLessons;
-
+import java.util.Arrays;
 import java.util.Scanner;
 
-public class Prog2_Gogo {
+public class Prog18 {
+	int indcnt=0;
 	
-	public int Indexfinder(char A[],char B[]){
-		int lena=A.length;
-		int lenb=B.length;
-		int count=0;
+	public int Occurrence(char A[],char B[]){
 		
-		for(int i=0;i<lena-2;i++){
-			if(A[i]==B[0]&&A[i+1]==B[1]&&A[i+2]==B[2]){
-				count =i;
-				}
+		for(int i=0;i<A.length;i++){
+			if(B[0]==A[i]){
+				for(int j=0; j<B.length;j++)
+					if(B[j]==A[i+j]){indcnt=i;} 
 			}
-		return count;
+			
+		}
+		return indcnt;
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
-		char A[]={'a','b','c','e','b','c','a','b','c'};
-		char B[]={'a','b','c'};
-		Prog2_Gogo pogo=new Prog2_Gogo();
 		
-		System.out.println("Index of the last occurrence :"+pogo.Indexfinder(A, B));
+		Prog18 p=new Prog18();
 		
+		Scanner scan=new Scanner(System.in);
+		System.out.println("Enter elements of char array A(big) in a string");
+		String aa=scan.next();
+		System.out.println("Enter elements of char array B(small) in a string");
+		String bb=scan.next();
+		
+			char A[]=new char[aa.length()];
+			char B[]=new char[bb.length()];
+		
+		
+		for(int i=0;i<aa.length();i++){
+			A[i]=aa.charAt(i);
+			}
+		for(int j=0;j<bb.length();j++){
+			B[j]=bb.charAt(j);
+		}
+		
+		System.out.println("The last index of B in A is : "+p.Occurrence(A,B));
+		}
 	}
-
-}
