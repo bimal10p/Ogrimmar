@@ -6,7 +6,7 @@ public class Prog18 {
 	
 	public int Occurrence(char A[],char B[]){
 		
-		for(int i=0;i<A.length;i++){
+		for(int i=0;i<A.length-B.length-1;i++){
 			if(B[0]==A[i]){
 				for(int j=0; j<B.length;j++)
 					if(B[j]==A[i+j]){indcnt=i;} 
