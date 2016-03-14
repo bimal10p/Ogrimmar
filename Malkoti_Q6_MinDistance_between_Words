@@ -1,5 +1,7 @@
 package TestProgs;
 
+import java.util.Scanner;
+
 public class Prog22_Distance {
 	
 	public int MinDist(String str,String w1,String w2){
@@ -8,34 +10,53 @@ public class Prog22_Distance {
 	int len=str.length();
 	int wa=w1.length();
 	int wb=w2.length();
-	int fp1=0,fp2=0;
-
+	int fp1=0,fp2=0,end=0;
 		
 	for(int i=0;i<len;i++){
 		int st1=str.indexOf(w1, fp1);
+		//System.out.println(st1);
+		if (st1<0)break;
 			for(int j=0;j<len;j++){
 				int temp=0;
 				int st2=str.indexOf(w2, fp2);
-				if(st2>st1){temp=Math.abs(st2-(st1+wa));}
+						if(st2<0){st2=end;}
+				
+				//System.out.println(st2);
+				
+				if(st2>st1){temp=st2-(st1+wa-2);}
 				else
-					temp=Math.abs(st1-(st2+wb));
+					temp=st1-(st2+wb-2);
 				
 				if(temp<dis){dis=temp;}
-				System.out.println(st1+"\t"+st2+"\t"+temp+"\t"+dis);
+				//System.out.println(st1+"\t"+st2+"\t"+temp+"\t"+dis);
 				fp2=st2+wb;
+				end=st2;
+				
 			}	
 			fp1=st1+wa;
+			//System.out.println("fpl is "+fp1);
+			
 		}		
 	return dis;	
 	}
-//----------------------------------------------------------------------
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		String str="badtfsadaiuubadaaaaaaabadsad";
-		String w1="bad";
-		String w2="sad";
+		//String str=" our motto is to achieve the highest quality possible to make customer happy ";
+		Scanner scan=new Scanner(System.in);
+		System.out.println("Enter Source String : ");
+		String source=scan.nextLine();
+		String str=" "+source+" ";
+		System.out.println("Enter first word : ");
+		String wa=scan.next();
+		String w1=" "+wa+" ";
+		System.out.println("Enter Second word : ");
+		String wb=scan.next();
+		String w2=" "+wb+" ";
 		Prog22_Distance mindis=new Prog22_Distance();
-		System.out.println("Min distance between the 2 words : "+mindis.MinDist(str, w1, w2));
+		System.out.println("Min distance between the 2 words : "+mindis.MinDist(str,w1,w2));
+		//System.out.println(str+w1+w2);
 	}
+
 }
