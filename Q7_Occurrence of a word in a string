@@ -1,0 +1,52 @@
+package TestProgs;
+
+import java.util.Scanner;
+
+public class Prog23_MaxWord {
+	static int start=0;
+	String word;
+	public String WordMax(String str){
+		
+		
+		String TEST[]=str.split(" ");
+		int l=TEST.length;
+		String done="";
+				
+		for(int i=0;i<l;i++){
+		String temp=TEST[i];
+		int count=0;
+		boolean dupflag=done.contains(" "+temp+" ");
+		if(dupflag==false){
+
+				for(int j=0;j<l;j++){
+					
+					if(temp.equals(TEST[j])){count++;}
+									}
+				
+			if (count>start){
+				start=count;
+				word=temp;
+			}else if(count==start){
+				start=count;
+				word=word+" & "+temp;
+			}
+		}
+			
+		done=done+" "+temp;
+		
+		}
+		if(start>1){return "repeating word/s : "+word+" ("+start+"times)";}
+		else
+			return "No repeating words";
+	}
+	
+		public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan=new Scanner(System.in);
+		System.out.println("Enter the String :");
+		String str=scan.nextLine();
+		Prog23_MaxWord max=new Prog23_MaxWord();
+		System.out.println(max.WordMax(str));
+	}
+
+}
